@@ -2,15 +2,19 @@
 
 variable "resourceGroupName" {
   type    = string
-  default = "js-az-k8s-cufx-rg"
+  default = "js-lza-aks-demo"
 }
 variable "location" {
   type    = string
-  default = "WestEurope"
+  default = "CanadaCentral"
 }
 variable "resourceName" {
   type    = string
-  default = "az-k8s-cufx"
+  default = "lza-demo"
+}
+variable "kubernetesVersion" {
+  type    = string
+  default = "1.27.3"
 }
 variable "upgradeChannel" {
   type    = string
@@ -31,6 +35,10 @@ variable "agentCountMax" {
 variable "custom_vnet" {
   type    = bool
   default = true
+}
+variable "vnetAksSubnetAddressPrefix" {
+  type    = string
+  default = "10.240.0.0/24"
 }
 variable "bastion" {
   type    = bool
@@ -79,6 +87,10 @@ variable "azurepolicy" {
   type    = string
   default = "deny"
 }
+variable "networkPluginMode" {
+  type    = string
+  default = "Overlay"
+}
 variable "availabilityZones" {
   default = ["1", "2", "3"]
 }
@@ -118,7 +130,19 @@ variable "keyVaultCreate" {
   type    = bool
   default = true
 }
+variable "fluxGitOpsAddon" {
+  type    = bool
+  default = true
+}
 variable "acrPrivatePool" {
+  type    = bool
+  default = true
+}
+variable "oidcIssuer" {
+  type    = bool
+  default = true
+}
+variable "workloadIdentity" {
   type    = bool
   default = true
 }

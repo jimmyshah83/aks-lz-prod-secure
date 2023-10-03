@@ -22,11 +22,13 @@ resource "azurerm_resource_group_template_deployment" "aksc_deploy" {
   template_content    = data.http.aksc_release.response_body
   parameters_content = jsonencode({
     resourceName                   = { value = var.resourceName }
+    kubernetesVersion              = { value = var.kubernetesVersion }
     upgradeChannel                 = { value = var.upgradeChannel }
     AksPaidSkuForSLA               = { value = var.AksPaidSkuForSLA }
     SystemPoolType                 = { value = var.SystemPoolType }
     agentCountMax                  = { value = var.agentCountMax }
     custom_vnet                    = { value = var.custom_vnet }
+    vnetAksSubnetAddressPrefix     = { value = var.vnetAksSubnetAddressPrefix }
     bastion                        = { value = var.bastion }
     enable_aad                     = { value = var.enable_aad }
     AksDisableLocalAccounts        = { value = var.AksDisableLocalAccounts }
@@ -41,6 +43,7 @@ resource "azurerm_resource_group_template_deployment" "aksc_deploy" {
     retentionInDays                = { value = var.retentionInDays }
     networkPolicy                  = { value = var.networkPolicy }
     azurepolicy                    = { value = var.azurepolicy }
+    networkPluginMode              = { value = var.networkPluginMode }
     availabilityZones              = { value = var.availabilityZones }
     enablePrivateCluster           = { value = var.enablePrivateCluster }
     ingressApplicationGateway      = { value = var.ingressApplicationGateway }
@@ -52,6 +55,9 @@ resource "azurerm_resource_group_template_deployment" "aksc_deploy" {
     keyVaultAksCSI                 = { value = var.keyVaultAksCSI }
     keyVaultCreate                 = { value = var.keyVaultCreate }
     keyVaultOfficerRolePrincipalId = { value = data.azurerm_client_config.current.object_id }
+    fluxGitOpsAddon                = { value = var.fluxGitOpsAddon }
     acrPrivatePool                 = { value = var.acrPrivatePool }
+    oidcIssuer                     = { value = var.oidcIssuer }
+    workloadIdentity               = { value = var.workloadIdentity }
   })
 }

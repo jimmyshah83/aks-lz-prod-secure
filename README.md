@@ -9,3 +9,8 @@ terraform plan -out main.tfplan
 terraform apply main.tfplan
 terraform output
 ```
+
+The landing zone accelerator contains the below resources in a VNet:
+1. AKS cluster (User node pool and System node pool)
+2. Azure key vault
+3. Azure Container Registry
