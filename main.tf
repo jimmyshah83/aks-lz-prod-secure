@@ -52,7 +52,6 @@ resource "azurerm_resource_group_template_deployment" "aksc_deploy" {
     keyVaultAksCSI                 = { value = var.keyVaultAksCSI }
     keyVaultCreate                 = { value = var.keyVaultCreate }
     keyVaultOfficerRolePrincipalId = { value = data.azurerm_client_config.current.object_id }
-    fluxGitOpsAddon                = { value = var.fluxGitOpsAddon }
     acrPrivatePool                 = { value = var.acrPrivatePool }
     kedaAddon                      = { value = var.kedaAddon }
     oidcIssuer                     = { value = var.oidcIssuer }

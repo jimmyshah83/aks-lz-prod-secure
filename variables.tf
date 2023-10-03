@@ -118,10 +118,6 @@ variable "keyVaultCreate" {
   type    = bool
   default = true
 }
-variable "fluxGitOpsAddon" {
-  type    = bool
-  default = true
-}
 variable "acrPrivatePool" {
   type    = bool
   default = true
