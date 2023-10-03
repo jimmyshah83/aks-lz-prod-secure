@@ -28,7 +28,6 @@ resource "azurerm_resource_group_template_deployment" "aksc_deploy" {
     SystemPoolType                 = { value = var.SystemPoolType }
     agentCountMax                  = { value = var.agentCountMax }
     custom_vnet                    = { value = var.custom_vnet }
-    vnetAksSubnetAddressPrefix     = { value = var.vnetAksSubnetAddressPrefix }
     bastion                        = { value = var.bastion }
     enable_aad                     = { value = var.enable_aad }
     AksDisableLocalAccounts        = { value = var.AksDisableLocalAccounts }
@@ -43,7 +42,6 @@ resource "azurerm_resource_group_template_deployment" "aksc_deploy" {
     retentionInDays                = { value = var.retentionInDays }
     networkPolicy                  = { value = var.networkPolicy }
     azurepolicy                    = { value = var.azurepolicy }
-    networkPluginMode              = { value = var.networkPluginMode }
     availabilityZones              = { value = var.availabilityZones }
     enablePrivateCluster           = { value = var.enablePrivateCluster }
     ingressApplicationGateway      = { value = var.ingressApplicationGateway }

@@ -36,10 +36,6 @@ variable "custom_vnet" {
   type    = bool
   default = true
 }
-variable "vnetAksSubnetAddressPrefix" {
-  type    = string
-  default = "10.240.0.0/24"
-}
 variable "bastion" {
   type    = bool
   default = true
@@ -86,10 +82,6 @@ variable "networkPolicy" {
 variable "azurepolicy" {
   type    = string
   default = "deny"
-}
-variable "networkPluginMode" {
-  type    = string
-  default = "Overlay"
 }
 variable "availabilityZones" {
   default = ["1", "2", "3"]
