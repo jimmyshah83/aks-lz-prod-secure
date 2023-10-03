@@ -22,7 +22,6 @@ resource "azurerm_resource_group_template_deployment" "aksc_deploy" {
   template_content    = data.http.aksc_release.response_body
   parameters_content = jsonencode({
     resourceName                   = { value = var.resourceName }
-    kubernetesVersion              = { value = var.kubernetesVersion }
     upgradeChannel                 = { value = var.upgradeChannel }
     AksPaidSkuForSLA               = { value = var.AksPaidSkuForSLA }
     SystemPoolType                 = { value = var.SystemPoolType }
@@ -55,6 +54,7 @@ resource "azurerm_resource_group_template_deployment" "aksc_deploy" {
     keyVaultOfficerRolePrincipalId = { value = data.azurerm_client_config.current.object_id }
     fluxGitOpsAddon                = { value = var.fluxGitOpsAddon }
     acrPrivatePool                 = { value = var.acrPrivatePool }
+    kedaAddon                      = { value = var.kedaAddon }
     oidcIssuer                     = { value = var.oidcIssuer }
     workloadIdentity               = { value = var.workloadIdentity }
   })

@@ -2,7 +2,7 @@
 
 variable "resourceGroupName" {
   type    = string
-  default = "js-lza-aks-demo"
+  default = "rg-aks-lza-workshop"
 }
 variable "location" {
   type    = string
@@ -11,10 +11,6 @@ variable "location" {
 variable "resourceName" {
   type    = string
   default = "lza-demo"
-}
-variable "kubernetesVersion" {
-  type    = string
-  default = "1.27.3"
 }
 variable "upgradeChannel" {
   type    = string
@@ -127,6 +123,10 @@ variable "fluxGitOpsAddon" {
   default = true
 }
 variable "acrPrivatePool" {
+  type    = bool
+  default = true
+}
+variable "kedaAddon" {
   type    = bool
   default = true
 }
